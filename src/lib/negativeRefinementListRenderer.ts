@@ -71,8 +71,11 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
                 label.appendChild(text)
                 list.appendChild(li);
 
-                label.parentNode.insertBefore(newDiv, label);
-                newDiv.appendChild(label);
+                if(label.parentNode){
+                    label.parentNode.insertBefore(newDiv, label);
+                    newDiv.appendChild(label);
+                }
+
             });
         },
         /*
