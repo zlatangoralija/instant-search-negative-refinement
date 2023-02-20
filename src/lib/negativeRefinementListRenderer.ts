@@ -53,8 +53,6 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
                 const label = document.createElement('label');
                 const input = document.createElement('input');
 
-                label.appendChild(newDiv)
-
                 li.classList.add('ais-RefinementList-item');
                 label.classList.add('ais-RefinementList-label');
                 input.classList.add('ais-RefinementList-checkbox');
@@ -72,6 +70,9 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
                 label.appendChild(input)
                 label.appendChild(text)
                 list.appendChild(li);
+
+                label.parentNode.insertBefore(newDiv, label);
+                newDiv.appendChild(label);
             });
         },
         /*
