@@ -1,5 +1,5 @@
 {
-  "name": "@omnitask/instant-search-negative-refinement",
+  "name": "@omnitask/instant-search-refinement",
   "description": "Gives a list of items to exclude from the current search",
   "repository": "https://github.com/zlatangoralija/instant-search-negative-refinement.git",
   "keywords": [
