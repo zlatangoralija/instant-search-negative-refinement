@@ -16,6 +16,7 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
       : container;
 
     const list = document.createElement('ul');
+    const newDiv = document.createElement('div');
 
     return {
         /*
@@ -51,6 +52,8 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
                 const li = document.createElement('li');
                 const label = document.createElement('label');
                 const input = document.createElement('input');
+
+                label.appendChild(newDiv)
 
                 li.classList.add('ais-RefinementList-item');
                 label.classList.add('ais-RefinementList-label');
