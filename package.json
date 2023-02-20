@@ -1,14 +1,13 @@
 {
-  "name": "@omnitask/instant-search-refinement",
+  "name": "@omnitask/negative-refinement",
   "description": "Gives a list of items to exclude from the current search",
-  "repository": "https://github.com/zlatangoralija/instant-search-negative-refinement.git",
   "keywords": [
     "instantsearch",
     "instantsearch-widget",
     "exclusion",
     "negative refinement"
   ],
-  "version": "1.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
