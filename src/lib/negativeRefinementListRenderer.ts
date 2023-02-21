@@ -16,7 +16,6 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
       : container;
 
     const list = document.createElement('ul');
-    const newDiv = document.createElement('div');
 
     return {
         /*
@@ -32,6 +31,8 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
              * See `renderOptions` documentation https://www.algolia.com/doc/
              */
             const { items, refine } = renderOptions;
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('ais-RefinementList');
 
             if (isFirstRender) {
                 /*
@@ -39,7 +40,8 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
                  * This is when we will create everything that must be reused between renders (containers, event listeners, etc.)
                  */
 
-                containerNode.appendChild(list);
+                containerNode.appendChild(wrapper);
+                wrapper.appendChild(list);
             }
 
             list.innerText = '';
@@ -49,6 +51,7 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
              * Update the widget using the data from `renderOptions`
              */
             items.forEach((item) => {
+                const newDiv = document.createElement('div');
                 const li = document.createElement('li');
                 const label = document.createElement('label');
                 const input = document.createElement('input');
@@ -64,13 +67,14 @@ export const createNegativeRefinementListRenderer: NegativeRefinementListRendere
                     refine(item.name)
                 })
 
-                const text = document.createTextNode(item.name);
-                
-                label.insertBefore(newDiv, label);
-                newDiv.appendChild(label);
+                const text = document.createElement('span');
+                text.classList.add('ais-RefinementList-labelText');
+                text.innerHTML = item.name;
 
-                label.appendChild(input)
-                label.appendChild(text)
+                li.appendChild(newDiv);
+                newDiv.appendChild(label);
+                label.appendChild(input);
+                label.appendChild(text);
                 list.appendChild(li);
             });
         },
